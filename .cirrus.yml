@@ -36,6 +36,7 @@ build_task:
     - git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
     
   build_script:
+    - PATH="$HOME/bin:$HOME/platform-tools:$PATH"
     - cd ~/android/lineage
     - source build/envsetup.sh
     - breakfast lavender
