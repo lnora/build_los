@@ -1,0 +1,5 @@
+container:
+  image: ubuntu:latest
+  
+build_task:
+  pre_script: ./setup.sh
