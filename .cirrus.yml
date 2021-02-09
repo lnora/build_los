@@ -1,5 +1,7 @@
 container:
   image: ubuntu:latest
+  cpu: 8
+  memory: 16G
   
 build_task:
   pre_script: ./setup.sh
