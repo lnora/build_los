@@ -2,12 +2,12 @@ container:
   dockerfile: Dockerfile
   cpu: 8
   memory: 24G
-
-lineage_cache:
-  folder: $HOME/android/lineage
-
+  
 repo_task:
   timeout_in: 120m
+  
+  lineage_cache:
+  folder: $HOME/android/lineage
   
   script:
    - cd ~/android/lineage
@@ -16,6 +16,9 @@ repo_task:
 
 build_task:
   timeout_in: 120m
+  
+  lineage_cache:
+  folder: $HOME/android/lineage
   
   script:
     - cd $HOME/android/lineage; chmod a+x $HOME/build.sh; $HOME/build.sh
