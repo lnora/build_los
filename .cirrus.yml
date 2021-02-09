@@ -26,6 +26,7 @@ build_task:
   
   repo_sync_script:
     - PATH="$HOME/bin:$HOME/platform-tools:$PATH"
+    - cd ~/android/lineage
     - repo sync -c -j8 --no-tags --no-clone-bundle
     
   clone_prj_script:
