@@ -7,3 +7,6 @@ task:
 
   lineage_cache:
     folder: $HOME/android/lineage
+
+  build_script:
+    - cd $HOME/android/lineage; chmod a+x $HOME/build.sh; $HOME/build.sh
