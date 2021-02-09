@@ -25,4 +25,19 @@ build_task:
     - repo init -u https://github.com/LineageOS/android.git -b lineage-16.0
   
   repo_sync_script:
+    - PATH="$HOME/bin:$HOME/platform-tools:$PATH"
     - repo sync -c -j8 --no-tags --no-clone-bundle
+    
+  clone_prj_script:
+    - cd ~/android/lineage
+    - git clone https://github.com/lnora/android_device_xiaomi_lavender.git device/xiaomi/lavender
+    - git clone https://github.com/lnora/proprietary_vendor_xiaomi_lavender.git vendor/xiaomi/lavender
+    - git clone https://github.com/lnora/android_kernel_xiaomi_lavender.git kernel/xiaomi/lavender
+    - git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
+    
+  build_script:
+    - cd ~/android/lineage
+    - source build/envsetup.sh
+    - breakfast lavender
+    - croot
+    - brunch lavender
