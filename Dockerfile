@@ -39,7 +39,7 @@ RUN apt-get -qq update && \
       zlib1g-dev \
       && rm -rf /var/lib/apt/lists/*
 
-RUN curl 'https://dl.google.com/android/repository/platform-tools-latest-linux.zip' > ~/platform-tools-latest-linux.zip
+RUN curl -L -o ~/platform-tools-latest-linux.zip 'https://dl.google.com/android/repository/platform-tools-latest-linux.zip'
 RUN unzip -q ~/platform-tools-latest-linux.zip -d ~
 RUN mkdir -p ~/bin
 RUN mkdir -p ~/android/lineage
