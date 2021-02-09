@@ -4,21 +4,14 @@ container:
   memory: 24G
   
 repo_task:
-  timeout_in: 120m
-  
-  lineage_cache:
-    folder: $HOME/android/lineage
-  
   script:
    - cd ~/android/lineage
-   - if [ ! -d .repo ]; then repo init -u https://github.com/LineageOS/android.git -b lineage-16.0; fi
+   - repo init -u https://github.com/LineageOS/android.git -b lineage-16.0;
    - repo sync -c --no-tags --no-clone-bundle -j$(nproc --all)
 
 build_task:
   timeout_in: 120m
-  
-  lineage_cache:
-    folder: $HOME/android/lineage
+  depends_on: repo
   
   script:
-    - cd $HOME/android/lineage; chmod a+x $HOME/build.sh; $HOME/build.sh
+    - cd ~/android/lineage; chmod a+x $HOME/build.sh; $HOME/build.sh
