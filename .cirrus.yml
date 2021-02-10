@@ -7,4 +7,4 @@ build_task:
   timeout_in: 120m
   
   script:
-    - chmod +ax /root/build.sh; ./build.sh
+    - chmod a+x /root/build.sh; ./build.sh
