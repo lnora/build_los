@@ -5,7 +5,7 @@ container:
 
 repo_task:
   repo_cache:
-    folder: .repo
+    folder: ~/android/lineage/.repo
     reupload_on_changes: false
   script:
    - cd ~/android/lineage
