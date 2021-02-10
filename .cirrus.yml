@@ -3,20 +3,8 @@ container:
   cpu: 8
   memory: 24G
   
-repo_task:
-  script:
-   - cd ~/android/lineage
-   - repo init -u https://github.com/LineageOS/android.git -b lineage-16.0;
-   - repo sync -c --no-tags --no-clone-bundle -j$(nproc --all)
-   - git clone https://github.com/lnora/android_device_xiaomi_lavender.git device/xiaomi/lavender
-   - git clone https://github.com/lnora/proprietary_vendor_xiaomi_lavender.git vendor/xiaomi/lavender
-   - git clone https://github.com/lnora/android_kernel_xiaomi_lavender.git kernel/xiaomi/lavender
-   - git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
-
 build_task:
   timeout_in: 120m
-  depends_on: repo
   
   script:
-    - cd ~/android/lineage
-    - source build/envsetup.sh; breakfast lavender; croot; brunch lavender
+    - chmod +ax /root/build.sh; ./build.sh
