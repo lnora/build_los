@@ -14,4 +14,5 @@ build_task:
   depends_on: repo
   
   script:
-    - cd ~/android/lineage; chmod a+x $HOME/build.sh; $HOME/build.sh
+    - cd ~/android/lineage
+    - source build/envsetup.sh; breakfast lavender; croot; brunch lavender
