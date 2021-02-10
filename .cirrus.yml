@@ -2,9 +2,18 @@ container:
   dockerfile: Dockerfile
   cpu: 8
   memory: 24G
-  
-build_task:
-  timeout_in: 120m
-  
+
+repo_task:
+  repo_cache:
+    folder: .repo
+    reupload_on_changes: false
   script:
-    - chmod a+x /root/build.sh; /root/build.sh
+   - cd ~/android/lineage
+   - if [ ! -d .repo] the; repo init -u https://github.com/LineageOS/android.git -b lineage-16.0; fi
+   - repo sync -c --no-tags --no-clone-bundle -j$(nproc --all)
+
+#build_task:
+#  timeout_in: 120m
+#  
+#  script:
+#    - chmod a+x /root/build.sh; /root/build.sh
